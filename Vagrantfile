@@ -1,7 +1,7 @@
 Vagrant.configure("2") do |config|
   # Master Node
   config.vm.define "master" do |master|
-    master.vm.box = "bento/ubuntu24.04"
+    master.vm.box = "bento/ubuntu-24.04"
     master.vm.hostname = "master"
     master.vm.network "private_network", type: "dhcp"
     master.vm.provider "virtualbox" do |vb|
@@ -28,7 +28,7 @@ Vagrant.configure("2") do |config|
   # Worker Nodes
   (1..2).each do |i|
     config.vm.define "worker#{i}" do |worker|
-      worker.vm.box = "bento/ubuntu24.04"
+      worker.vm.box = "bento/ubuntu-24.04"
       worker.vm.hostname = "worker#{i}"
       worker.vm.network "private_network", type: "dhcp"
       worker.vm.provider "virtualbox" do |vb|
