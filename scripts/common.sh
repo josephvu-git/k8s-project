@@ -34,6 +34,7 @@ apt-get install -y cri-o kubelet kubeadm kubectl
 
 # Start CRI-O
 systemctl start crio.service
+echo "CRI-O runtime installed successfully"
 
 # Bootstrap a cluster
 swapoff -a
