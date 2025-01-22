@@ -16,7 +16,8 @@ Vagrant.configure("2") do |config|
       apt-get install -y apt-transport-https curl
 
 # This script has some issues when pulling the keyring to the machine and verifying
-      curl -fsSL https://pkgs.k8s.io/core:/stable:/1.32/deb/Release.key |
+     # curl -fsSL https://pkgs.k8s.io/core:/stable:/1.32/deb/Release.key | 
+        wget -O - https://pkgs.k8s.io/core:/stable:/1.32/deb/Release.key |
         gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
       echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/1.32/deb/ /" |
     tee /etc/apt/sources.list.d/kubernetes.list
@@ -45,7 +46,8 @@ Vagrant.configure("2") do |config|
         apt-get install -y apt-transport-https curl
 
 # Same as master
-        curl -fsSL https://pkgs.k8s.io/core:/stable:/1.32/deb/Release.key |
+        # curl -fsSL https://pkgs.k8s.io/core:/stable:/1.32/deb/Release.key |
+        wget -O - https://pkgs.k8s.io/core:/stable:/1.32/deb/Release.key  |
           gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
         echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/1.32/deb/ /" |
           tee /etc/apt/sources.list.d/kubernetes.list
